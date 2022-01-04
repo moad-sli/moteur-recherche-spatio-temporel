@@ -1,0 +1,8 @@
+{
+  "name": "tensorflow",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "latest",
+    "type":"module"
+  }
+}

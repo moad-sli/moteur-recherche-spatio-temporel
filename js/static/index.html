@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script src="https:/code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/leaflet-routing-machine@3.2.1/dist/leaflet-routing-machine.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.1/dist/tf.min.js"></script>
+    <script src="http://unpkg.com/leaflet-sidebar-v2"></script>
+    <script defer src="script.js"></script>
+    <title>mapty // Map your workouts</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <img src="logo.png" alt="Logo" class="logo" />
+
+      <ul class="marchandise">
+        <form class="form hidden">
+          <label class="from_title">Marchandise</label>
+          <div class="form__row">
+            <label class="form__label">Type de marchandise</label>
+            <select class="form__input form__input--type">
+              <option value="item1">item1</option>
+              <option value="item2">item2</option>
+              <option value="item3">item3</option>
+              <option value="item4">item4</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label">volume </label>
+            <input class="form__input form__input--volume" placeholder="m3" />
+          </div>
+          <div class="form__row">
+            <label class="form__label">poid</label>
+            <input class="form__input form__input--poid" placeholder="kg" />
+          </div>
+          <div class="form__row">
+            <label class="form__label">longueur</label>
+            <input class="form__input form__input--longueur" placeholder="m" />
+          </div>
+          <div class="form__row">
+            <label class="form__label">largeur</label>
+            <input class="form__input form__input--largeur" placeholder="m" />
+          </div>
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Elev Gain</label>
+            <input
+              class="form__input form__input--elevation"
+              placeholder="meters"
+            />
+          </div>
+        </form>
+      </ul>
+      <ul class="temps">
+        <form class="form hidden">
+          <label class="from_title">Date</label>
+          <div class="form__row">
+            <label class="form__label">date depart</label>
+            <input
+              class="form__depart--min"
+              type="date"
+              id="start_min"
+              value="2021-07-22"
+              min="2021-01-01"
+              max="2022-12-31"
+            />
+          </div>
+          <div class="form__row">
+            <label class="form__label">temps depart </label>
+
+            <input
+              class="form__depart--max"
+              type="time"
+              id="start_time"
+              value="08:00"
+              min="8:00"
+              max="18:00"
+            />
+          </div>
+          <div class="form__row">
+            <label class="form__label">date d'arrivée </label>
+            <input
+              class="form__arrivée--min"
+              type="date"
+              id="end_min"
+              value="2022-07-22"
+              min="2021-01-01"
+              max="2022-12-31"
+            />
+          </div>
+          <div class="form__row">
+            <label class="form__label">temps d'arrivée</label>
+            <input
+              class="form__arivée--max"
+              type="time"
+              id="end_time"
+              value="18:00"
+              min="8:00"
+              max="18:00"
+            />
+          </div>
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Elev Gain</label>
+            <input
+              class="form__input form__input--elevation"
+              placeholder="meters"
+            />
+          </div>
+        </form>
+      </ul>
+      <div>
+        <button id="botona" type="button" class="botona_style">predict</button>
+      </div>
+    </div>
+
+    <div id="map"></div>
+  </body>
+</html>
